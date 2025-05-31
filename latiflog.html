@@ -4,59 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LatifLog - Daily Tracker</title>
- <link rel="stylesheet" href="latiflog.css">
+  <link rel="stylesheet" href="latiflog.css" />
 </head>
 <body>
-    <nav class="menu-bar">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Log</a></li>
-          <li><!-- Rate Button -->
-        <a href="#" onclick="toggleRating()" id="rateButton">Rate</a>
-            
-            <!-- Hidden Rating Panel -->
-            <div id="ratingSection" class="hidden">
-              <p>Rate this page:</p>
-              <div id="stars">
-                <span onclick="ratePage(1)">⭐</span>
-                <span onclick="ratePage(2)">⭐</span>
-                <span onclick="ratePage(3)">⭐</span>
-                <span onclick="ratePage(4)">⭐</span>
-                <span onclick="ratePage(5)">⭐</span>
-              </div>
-              <p id="ratingResult"></p>
-            </div>
-            </li>
-          <!-- Settings Button in Menu -->
-<li><a href="javascript:void(0);" onclick="toggleSettings()">Settings</a></li>
 
-<!-- Collapsible Settings Section -->
-<section id="settings-section">
+  <!-- Navigation Bar -->
+  <nav class="menu-bar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Log</a></li>
+      <li><a href="javascript:void(0);" onclick="toggleRating()">Rate</a></li>
+      <li><a href="javascript:void(0);" onclick="toggleSettings()">Settings</a></li>
+    </ul>
+  </nav>
 
-  <!-- Rename Title -->
-  <!-- Settings Section (Collapsed by Default) -->
-<div id="settingsSection" style="display: none; padding: 20px; background: #222; border: 1px solid #444; margin-top: 80px;">
-    <h2 style="color: white;">Settings</h2>
-    
-    <label for="newTitle" style="color: white;">Change Log Title:</label><br>
-    <input type="text" id="newTitle" placeholder="Enter new title" style="padding: 8px; width: 60%; margin-top: 10px;"><br><br>
-    
-    <button onclick="changeTitle()" style="padding: 10px 20px; background-color: gold; border: none; color: black; font-weight: bold; cursor: pointer;">Change Title</button>
-  </div>
-  
-
-  <!-- View Saved Logs -->
-  <div class="setting-group">
-    <h3>Saved Logs</h3>
-    <ul id="savedLogs"></ul>
-  </div>
-</section>
- </ul>
- </nav>
-      
-      
+  <!-- Page Title -->
   <div class="container">
-    <h1>LatifLog 📓</h1>
+    <h1 id="logTitle">LatifLog 📓</h1>
+
+    <!-- Rating Section (hidden by default) -->
+    <div id="ratingSection" class="hidden section">
+      <h2>Rate this page:</h2>
+      <div id="stars">
+        <span onclick="ratePage(1)">⭐</span>
+        <span onclick="ratePage(2)">⭐</span>
+        <span onclick="ratePage(3)">⭐</span>
+        <span onclick="ratePage(4)">⭐</span>
+        <span onclick="ratePage(5)">⭐</span>
+      </div>
+      <p id="ratingResult"></p>
+    </div>
+
+    <!-- Settings Section -->
+    <div id="settingsSection" class="hidden section">
+      <h2>Settings</h2>
+      <label for="newTitle">Change Log Title:</label><br>
+      <input type="text" id="newTitle" placeholder="Enter new title" /><br><br>
+      <button onclick="changeTitle()">Change Title</button>
+
+      <h3>Saved Logs</h3>
+      <ul id="savedLogs"></ul>
+    </div>
+
+    <!-- Daily Tracker Form -->
     <form id="logForm">
       <label for="screenTime">📱 Screen Time (hours)</label>
       <input type="number" id="screenTime" name="screenTime" required>
@@ -85,16 +75,18 @@
 
       <label for="win">✅ Small Win of the Day</label>
       <textarea id="win" name="win" rows="2"></textarea>
+    </form>
 
+    <!-- Log Section -->
     <section class="log-section">
-        <h2>Activity Log</h2>
-        <textarea id="logInput" placeholder="Write your log here..." rows="4" cols="50"></textarea><br/>
-        <button id="saveLogBtn">Save Log</button>
-        <div id="logDisplay"></div>
-      </section>
-      </div></form>
-            
+      <h2>Activity Log</h2>
+      <textarea id="logInput" placeholder="Write your log here..." rows="4" cols="50"></textarea><br />
+      <button type="button" id="saveLogBtn" onclick="submitLog()">Save Log</button>
+      <div id="logDisplay"></div>
+    </section>
   </div>
+
+  <!-- Link to JavaScript -->
   <script src="latiflog.js"></script>
 </body>
 </html>
