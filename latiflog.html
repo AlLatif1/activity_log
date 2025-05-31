@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LatifLog - Daily Tracker</title>
+ <link rel="stylesheet" href="latiflog.css">
+</head>
+<body>
+    <nav class="menu-bar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Log</a></li>
+          <li><!-- Rate Button -->
+        <a href="#" onclick="toggleRating()" id="rateButton">Rate</a>
+            
+            <!-- Hidden Rating Panel -->
+            <div id="ratingSection" class="hidden">
+              <p>Rate this page:</p>
+              <div id="stars">
+                <span onclick="ratePage(1)">⭐</span>
+                <span onclick="ratePage(2)">⭐</span>
+                <span onclick="ratePage(3)">⭐</span>
+                <span onclick="ratePage(4)">⭐</span>
+                <span onclick="ratePage(5)">⭐</span>
+              </div>
+              <p id="ratingResult"></p>
+            </div>
+            </li>
+          <!-- Settings Button in Menu -->
+<li><a href="javascript:void(0);" onclick="toggleSettings()">Settings</a></li>
+
+<!-- Collapsible Settings Section -->
+<section id="settings-section">
+
+  <!-- Rename Title -->
+  <!-- Settings Section (Collapsed by Default) -->
+<div id="settingsSection" style="display: none; padding: 20px; background: #222; border: 1px solid #444; margin-top: 80px;">
+    <h2 style="color: white;">Settings</h2>
+    
+    <label for="newTitle" style="color: white;">Change Log Title:</label><br>
+    <input type="text" id="newTitle" placeholder="Enter new title" style="padding: 8px; width: 60%; margin-top: 10px;"><br><br>
+    
+    <button onclick="changeTitle()" style="padding: 10px 20px; background-color: gold; border: none; color: black; font-weight: bold; cursor: pointer;">Change Title</button>
+  </div>
+  
+
+  <!-- View Saved Logs -->
+  <div class="setting-group">
+    <h3>Saved Logs</h3>
+    <ul id="savedLogs"></ul>
+  </div>
+</section>
+ </ul>
+ </nav>
+      
+      
+  <div class="container">
+    <h1>LatifLog 📓</h1>
+    <form id="logForm">
+      <label for="screenTime">📱 Screen Time (hours)</label>
+      <input type="number" id="screenTime" name="screenTime" required>
+
+      <label for="studyTime">📚 Study Time (hours)</label>
+      <input type="number" id="studyTime" name="studyTime" required>
+
+      <label for="productiveApps">🛠️ Productive Apps Used</label>
+      <input type="text" id="productiveApps" name="productiveApps">
+
+      <label for="wastedTime">📉 Time Wasted (apps or hours)</label>
+      <input type="text" id="wastedTime" name="wastedTime">
+
+      <label for="focusLevel">🌕 Focus Level (1–10)</label>
+      <input type="number" min="1" max="10" id="focusLevel" name="focusLevel">
+
+      <label for="mood">🧠 Mental State / Mood</label>
+      <select id="mood" name="mood">
+        <option>Focused</option>
+        <option>Okay</option>
+        <option>Distracted</option>
+        <option>Sad</option>
+        <option>Anxious</option>
+        <option>Motivated</option>
+      </select>
+
+      <label for="win">✅ Small Win of the Day</label>
+      <textarea id="win" name="win" rows="2"></textarea>
+
+    <section class="log-section">
+        <h2>Activity Log</h2>
+        <textarea id="logInput" placeholder="Write your log here..." rows="4" cols="50"></textarea><br/>
+        <button id="saveLogBtn">Save Log</button>
+        <div id="logDisplay"></div>
+      </section>
+      </div></form>
+            
+  </div>
+  <script src="latiflog.js"></script>
+</body>
+</html>

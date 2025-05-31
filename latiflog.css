@@ -1,0 +1,234 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  body {
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+  }
+
+  .container {
+    background: rgba(0, 0, 0, 0.6);          /* Dark translucent black */
+    border-radius: 20px;                      /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thin subtle white border */
+    box-shadow:
+      0 4px 30px rgba(0, 0, 0, 0.7),        /* Deep shadow for depth */
+      inset 0 0 15px rgba(255, 255, 255, 0.05); /* Inner faint glow */
+    backdrop-filter: blur(12px);              /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(12px);      /* For Safari */
+    position: relative;
+    color: white;                             /* Text color */
+    padding: 30px;
+    overflow: hidden;
+    width: 50%;
+  }
+  
+  /* Shiny light reflection effect */
+  .container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+    border-radius: 20px;
+    mix-blend-mode: screen;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(25deg);
+    }
+  }
+  .menu-bar {
+    position: fixed;     /* fix position */
+    top: 0;              /* stick to top */
+    left: 0;
+    width: 100%;         /* full width */
+    z-index: 1000;       /* stay on top of other content */
+    background: #111;    /* keep background so it doesn't get transparent */
+    padding: 10px 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
+  }
+  
+  
+  .menu-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    gap: 30px;
+    width: 100%;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .hidden {
+    display: none;
+  }
+  
+  
+  
+  .menu-bar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-bar ul li a:hover {
+    background: #333;
+    box-shadow: 0 0 10px #6cf;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #4A90E2;
+  }
+
+  label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    background: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #357ABD;
+  }
+  /* Default (for desktops/laptops) */
+.container {
+    padding: 30px;
+    font-size: 18px;
+  }
+  
+
+  .settings-section {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.3s ease;
+  }
+  
+  .settings-section.collapsed {
+    max-height: 0;
+    padding: 0 20px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .setting-group {
+    margin-bottom: 20px;
+  }
+  
+  .setting-group input {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #222;
+    color: white;
+  }
+  
+  .setting-group button {
+    padding: 8px 15px;
+    background-color: #6cf;
+    border: none;
+    border-radius: 6px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .setting-group ul {
+    list-style: inside disc;
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  #stars span {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: white; /* Normal star color */
+    transition: transform 0.2s, color 0.3s;
+  }
+  
+ 
+  #stars span {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+    user-select: none;
+  }
+  
+  #ratingstars span:hover,
+  #ratingstars span.hovered,
+  #ratingstars span.selected {
+    color: gold;
+  }
+  /* Tablets */
+  @media (max-width: 50%) {
+    .container {
+      padding: 20px;
+      font-size: 16px;
+    }
+  }
+  
+  /* Mobile phones */
+  @media (max-width: 50%) {
+    .container {
+      padding: 15px;
+      font-size: 14px;
+    }
+  }
